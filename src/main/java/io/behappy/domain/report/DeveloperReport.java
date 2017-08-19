@@ -5,7 +5,7 @@ import io.behappy.domain.employee.Name;
 import java.util.LinkedList;
 import java.util.List;
 
-public class DeveloperReport implements VisitableReport<String> {
+public class DeveloperReport implements VisitableReport {
 
     private final Name developerName;
     private final List<TaskSummary> summaries;
@@ -30,7 +30,7 @@ public class DeveloperReport implements VisitableReport<String> {
     }
 
     @Override
-    public String accept(ReportVisitor<String> visitor) {
-        return visitor.visit(this);
+    public void accept(ReportVisitor visitor) {
+        visitor.visit(this);
     }
 }

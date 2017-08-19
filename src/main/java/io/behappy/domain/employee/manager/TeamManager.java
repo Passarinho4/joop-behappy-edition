@@ -4,6 +4,7 @@ import io.behappy.domain.employee.Name;
 import io.behappy.domain.report.ManagerReport;
 import io.behappy.domain.report.Report;
 import io.behappy.domain.employee.Role;
+import io.behappy.domain.report.VisitableReport;
 import io.behappy.domain.task.Task;
 import io.behappy.domain.employee.AbstractEmployee;
 import io.behappy.domain.employee.Employee;
@@ -52,7 +53,7 @@ public class TeamManager extends AbstractEmployee implements Manager {
     }
 
     @Override
-    public Report reportWork() {
+    public VisitableReport reportWork() {
         ManagerReport report = new ManagerReport(name);
         employees.forEach(e -> report.addReport(e.reportWork()));
         return report;
