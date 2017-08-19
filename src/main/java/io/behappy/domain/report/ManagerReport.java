@@ -20,6 +20,11 @@ public class ManagerReport implements VisitableReport {
         return managerName;
     }
 
+    @Override
+    public int unitOfWorks() {
+        return reports.stream().mapToInt(VisitableReport::unitOfWorks).sum();
+    }
+
     public List<VisitableReport> getReports() {
         return reports;
     }

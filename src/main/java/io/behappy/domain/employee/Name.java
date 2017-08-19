@@ -2,7 +2,7 @@ package io.behappy.domain.employee;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-public final class Name {
+public final class Name implements Comparable<Name> {
 
     private final String name;
 
@@ -18,5 +18,10 @@ public final class Name {
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Name o) {
+        return name.compareTo(o.getName());
     }
 }

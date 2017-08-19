@@ -2,8 +2,7 @@ package io.behappy.domain.employee.developer;
 
 import com.google.common.base.MoreObjects;
 import io.behappy.domain.employee.AbstractEmployee;
-import io.behappy.domain.employee.Name;
-import io.behappy.domain.employee.Role;
+import io.behappy.domain.employee.AbstractEmployeeBuilder;
 import io.behappy.domain.report.DeveloperReport;
 import io.behappy.domain.report.TaskSummary;
 import io.behappy.domain.report.VisitableReport;
@@ -13,8 +12,8 @@ public class Developer extends AbstractEmployee {
 
     private final DeveloperReport report;
 
-    public Developer(Name name, Role role) {
-        super(name, role);
+    public Developer(AbstractEmployeeBuilder builder) {
+        super(builder);
         report = new DeveloperReport(name);
     }
 

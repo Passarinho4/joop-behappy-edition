@@ -1,9 +1,12 @@
 package io.behappy.datasource;
 
 import com.google.common.collect.ImmutableList;
-import io.behappy.domain.employee.Name;
+import io.behappy.domain.employee.*;
+import io.behappy.domain.employee.manager.HireStrategiesFactory;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.function.Predicate;
 
 public final class ExampleDataSource {
 
@@ -22,4 +25,14 @@ public final class ExampleDataSource {
             new Name("Anna"),
             new Name("Adam"),
             new Name("Zuzia"));
+
+    public static List<Gender> GENDERS = ImmutableList.copyOf(Gender.values());
+    public static List<University> UNIVERSITIES = ImmutableList.copyOf(University.values());
+    public static List<Mail> MAILS = ImmutableList.of(
+            new Mail("passarinho4@gmail.com"),
+            new Mail("trololo@gmail.com"));
+    public static List<Locale> NATIONALITIES = ImmutableList.copyOf(Locale.getAvailableLocales());
+    public static List<Predicate<Employee>> HIRE_STRATEGIES = ImmutableList.of(
+            HireStrategiesFactory.getOnlyAGH(),
+            HireStrategiesFactory.getOnlyWomen());
 }

@@ -4,4 +4,6 @@ import io.behappy.domain.employee.Name;
 
 public interface Report {
     Name executorName();
+
+    int unitOfWorks();
 }

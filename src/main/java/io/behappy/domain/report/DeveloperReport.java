@@ -21,6 +21,11 @@ public class DeveloperReport implements VisitableReport {
         return developerName;
     }
 
+    @Override
+    public int unitOfWorks() {
+        return summaries.stream().mapToInt(TaskSummary::getUnitOfWorks).sum();
+    }
+
     public List<TaskSummary> getTaskSummaries() {
         return this.summaries;
     }
