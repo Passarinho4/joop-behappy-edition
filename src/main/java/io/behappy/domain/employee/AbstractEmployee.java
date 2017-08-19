@@ -3,7 +3,7 @@ package io.behappy.domain.employee;
 public abstract class AbstractEmployee implements Employee {
 
     protected final Name name;
-    private final Role role;
+    protected final Role role;
 
     protected AbstractEmployee(Name name, Role role) {
         this.name = name;
@@ -20,11 +20,4 @@ public abstract class AbstractEmployee implements Employee {
         return role;
     }
 
-    @Override
-    public String toString() {
-        return "AbstractEmployee{" +
-                "executorName=" + name +
-                ", role=" + role +
-                '}';
-    }
 }

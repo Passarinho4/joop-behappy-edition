@@ -34,12 +34,12 @@ public final class RandomGeneratorService implements GeneratorService {
 
     @Override
     public TeamManager getTeamManager() {
-        return new TeamManager(getRandomName(), Role.TEAM_MANAGER, random.nextInt(5) + 1);
+        return new TeamManager(getRandomName(), Role.TEAM_MANAGER, random.nextInt(5) + 2);
     }
 
     @Override
     public TeamManager getCeo() {
-        return new TeamManager(getRandomName(), Role.CEO, random.nextInt(3) + 1);
+        return new TeamManager(getRandomName(), Role.CEO, random.nextInt(3) + 2);
     }
 
     @Override
