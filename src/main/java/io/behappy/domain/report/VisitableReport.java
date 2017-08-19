@@ -1,5 +1,5 @@
 package io.behappy.domain.report;
 
-public interface VisitableReport<T> extends Report {
-    T accept(ReportVisitor<T> visitor);
+public interface VisitableReport extends Report {
+    void accept(ReportVisitor visitor);
 }

@@ -6,6 +6,7 @@ import io.behappy.domain.employee.Role;
 import io.behappy.domain.report.DeveloperReport;
 import io.behappy.domain.report.Report;
 import io.behappy.domain.report.TaskSummary;
+import io.behappy.domain.report.VisitableReport;
 import io.behappy.domain.task.Task;
 
 public class Developer extends AbstractEmployee {
@@ -23,7 +24,7 @@ public class Developer extends AbstractEmployee {
     }
 
     @Override
-    public Report reportWork() {
+    public VisitableReport reportWork() {
         return report;
     }
 }

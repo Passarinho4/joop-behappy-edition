@@ -5,10 +5,10 @@ import io.behappy.domain.employee.Name;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ManagerReport implements VisitableReport<String> {
+public class ManagerReport implements VisitableReport {
 
     private final Name managerName;
-    private final List<VisitableReport<String>> reports;
+    private final List<VisitableReport> reports;
 
     public ManagerReport(Name managerName) {
         this.managerName = managerName;
@@ -20,16 +20,16 @@ public class ManagerReport implements VisitableReport<String> {
         return managerName;
     }
 
-    public List<VisitableReport<String>> getReports() {
+    public List<VisitableReport> getReports() {
         return reports;
     }
 
-    public void addReport(VisitableReport<String> report) {
+    public void addReport(VisitableReport report) {
         this.reports.add(report);
     }
 
     @Override
-    public String accept(ReportVisitor<String> visitor) {
-        return visitor.visit(this);
+    public void accept(ReportVisitor visitor) {
+        visitor.visit(this);
     }
 }

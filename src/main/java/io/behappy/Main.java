@@ -1,6 +1,8 @@
 package io.behappy;
 
 import com.google.common.primitives.Ints;
+import io.behappy.domain.employee.manager.TeamManager;
+import io.behappy.domain.report.ReportVisualizer;
 import io.behappy.service.GeneratorService;
 import io.behappy.service.PrintService;
 import io.behappy.service.ServiceProvider;
@@ -18,6 +20,8 @@ public class Main {
 
         //Some random company implementation... Probably will be very messy.
 
+        TeamManager ceo = generatorService.getCeo();
+        ceo.reportWork().accept(new ReportVisualizer(printService));
 
     }
 

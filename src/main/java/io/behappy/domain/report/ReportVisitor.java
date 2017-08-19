@@ -1,8 +1,8 @@
 package io.behappy.domain.report;
 
-public interface ReportVisitor<T> {
+public interface ReportVisitor {
 
-    T visit(DeveloperReport report);
-    T visit(ManagerReport report);
+    void visit(DeveloperReport report);
+    void visit(ManagerReport report);
 
 }

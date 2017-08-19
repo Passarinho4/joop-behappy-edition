@@ -1,8 +1,17 @@
 package io.behappy.domain.report;
 
-public class ReportVisualizer implements ReportVisitor<String> {
+import io.behappy.service.PrintService;
 
-    public String visit(DeveloperReport report) {
+public class ReportVisualizer implements ReportVisitor {
+
+    private final PrintService printService;
+
+    public ReportVisualizer(PrintService printService) {
+
+        this.printService = printService;
+    }
+
+    public void visit(DeveloperReport report) {
         StringBuilder builder = new StringBuilder();
         builder.append("Developer ")
                 .append(report.executorName())
@@ -15,25 +24,19 @@ public class ReportVisualizer implements ReportVisitor<String> {
                     builder.append(summary.getUnitOfWorks());
                     builder.append(" UoW)");
                 });
-        return builder.toString();
+        printService.print(builder.toString());
     }
 
-    public String visit(ManagerReport report) {
+    public void visit(ManagerReport report) {
         StringBuilder builder = new StringBuilder();
         builder.append("Manager ")
                 .append(report.executorName())
                 .append(" has done: \n{");
 
-        report.getReports()
-                .stream()
-                .map(r -> r.accept(this))
-                .forEach(s -> {
-                    builder.append(s);
-                    builder.append("\n");
-                });
+        report.getReports().forEach(r -> r.accept(this));
         builder.append("}\n");
 
-        return builder.toString();
+         printService.print(builder.toString());
     }
 
 }
